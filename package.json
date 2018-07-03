@@ -1,0 +1,22 @@
+{
+  "name": "binaurallib",
+  "version": "1.0.0",
+  "description": "Audio Binarualisation library for web applications",
+  "main": "main.js",
+  "scripts": {
+    "build:browserify": "browserify main.js --standalone BinauralLib -o BinauralLib.js",
+    "build:src": "babel src -d dist",
+    "build:preset": "babel --presets es2015 src -d dist",
+    "build:uglify": "uglifyjs BinauralLib.js -o BinauralLib.min.js",
+    "build": "npm run build:browserify && npm run build:src && npm run build:preset && npm run build:uglify"
+  },
+  "author": "goddarna",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "browserify": "^14.1.0",
+    "kdt": "^0.1.0",
+    "uglify-js": "github:mishoo/UglifyJS2#harmony"
+  }
+}

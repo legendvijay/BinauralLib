@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <title>BinauralLib Test</title>
+    </head>
+    <body>
+        <audio controls="controls">
+            Your browser does not support the <code>audio</code> element.
+            <source src="audio/guitar.wav" type="audio/wav">
+        </audio>
+
+    </body>
+    <script src = "BinauralLib.min.js"></script>
+    <script>
+        // create audio context
+        const audioCtx = new AudioContext();
+
+        // create new binaurallib instance
+        const binauralLib = new BinauralLib(audioCtx);
+
+        // get reference to the DOM
+        let myAudio = document.querySelector('audio');
+        let source = audioCtx.createMediaElementSource(myAudio);
+
+        // create a binauraliser (one for each mono source)
+        let binauraliser = binauralLib.createBinauraliser();
+
+        // connect HTML5 audio source to the binauraliser
+        binauraliser.connect(source, audioCtx.destination);
+        // set azimuth to 30°
+        binauraliser.azimuth = 30;
+        // set defined position (call this when position has been changed)
+        binauraliser.setPosition();
+
+    </script>
+</html>
