@@ -1,5 +1,5 @@
 /**
- * Deals with the rotation of ones head (all algorithms are from headphonelib)
+ * Deals with the rotation of ones head
  * @file headRotation.js
  * @author goddarna
  * @class HeadRotation
